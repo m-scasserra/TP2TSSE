@@ -17,7 +17,7 @@ bool ValueIndex(uint8_t led){
 
 void ledsInit(uint16_t *direccion){
     puerto_virtual = direccion;
-    *direccion = ALL_LEDS_OFF;
+    ledsTurnOffAll();
 }
 
 void ledsTurnOnSingle(uint8_t led){

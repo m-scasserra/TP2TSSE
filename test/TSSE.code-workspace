@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"leds.h": "c",
+			"stdint.h": "c"
+		}
+	}
+}

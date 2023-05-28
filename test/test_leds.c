@@ -16,8 +16,6 @@ void test_todos_los_leds_inician_apagados(void){
     ledsInit(&puerto_virtual);
 
     TEST_ASSERT_EQUAL(0x0000, puerto_virtual);
-    //TEST_ASSERT_BITS_LOW(0xFFFF, puerto_virtual);
-    //TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);
 }
 
 // Con todos los LEDS apagados, prendo el LED 2, verifico que el bit 1 vale 1.
@@ -47,41 +45,25 @@ void test_prender_y_apagar_varios_leds(void){
 
 // Prendo un LED, consulto el estado y tiene que estar prendido.
 void test_prender_y_consultar_un_led(void){
-    bool resultado;
     ledsTurnOnSingle(2);
-    resultado = ledsCheckTurnOn(2);
 
-    TEST_ASSERT_TRUE(resultado);
+    TEST_ASSERT_TRUE(ledsCheckTurnOn(2));
 }
 
 
 // Apago un LED, consulto el estado y tiene que estar apagado.
 void test_apagar_y_consultar_un_led(void){
-    bool resultado;
-    ledsTurnOnSingle(2);
-    ledsTurnOffSingle(2);
-    resultado = ledsCheckTurnOff(2);
-    
-    TEST_ASSERT_TRUE(resultado);
+    TEST_ASSERT_TRUE(ledsCheckTurnOff(2));
 }
 
 // Con todos los LEDS apagados, prendo todos los LEDS y verifico que se encienden.
 void test_prender_todos_y_verificar(void){
-    bool resultado;
     ledsTurnOnAll();
-    //ledsTurnOffSingle(2);
-    resultado = ledsCheckTurnOnAll();
 
-    TEST_ASSERT_TRUE(resultado);
+    TEST_ASSERT_TRUE(ledsCheckTurnOnAll());
 }
 
 // Con todos los LEDS prendidos, apago todos los LEDS y verifico que se apagan.
 void test_apagar_todos_y_verificar(void){
-    bool resultado;
-    ledsTurnOnAll();
-    ledsTurnOffAll();
-    //ledsTurnOnSingle(2);
-    resultado = ledsCheckTurnOffAll();
-
-    TEST_ASSERT_TRUE(resultado);
+    TEST_ASSERT_TRUE(ledsCheckTurnOffAll());
 }
